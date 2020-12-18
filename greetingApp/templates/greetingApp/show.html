@@ -1,22 +1,84 @@
-<html>
-<head>
-  <title>Messages</title>
-</head>
+{% block body %}
+{% for user in users %}
+    <style type="text/css">
+    *{
+     margin: 0px;
+     padding: 0px;
+    }
+    body{
+     font-family: arial;
+    }
+    .card{
+         width: 20%;
+         display: inline-block;
+         box-shadow: 2px 2px 20px black;
+         border-radius: 5px;
+         margin: 2%;
+        }
 
-<body>
-    <div class="card" style="width: 18rem;">
-        {% for user in users %}
-        <div class="card-header">
-            <h2 class="card-title">User : {{user.id}}</h2>
+    .image img{
+      width: 100%;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+     }
+
+    .card-body{
+      float: left;
+      margin-bottom: 10px;
+     }
+
+    .card-header{
+      text-align: center;
+
+     }
+
+    h1{
+      font-size: 20px;
+     }
+
+    .des{
+      padding: 3px;
+      text-align: center;
+
+      padding-top: 10px;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    button{
+      margin-top: 20px;
+      margin-bottom: 10px;
+      background-color: white;
+      border: 1px solid black;
+      border-radius: 5px;
+      padding:10px;
+    }
+    button:hover{
+      background-color: black;
+      color: white;
+      transition: .5s;
+      cursor: pointer;
+    }
+
+    </style>
+    <body>
+
+    <div class="card">
+
+        <div class="image">
+           <img src="https://unblast.com/wp-content/uploads/2019/12/Modern-Greeting-Card-Mockup-1.jpg">
         </div>
-        <div class="card-body">
-            <ul class="card-text">
-                <li>Name : {{ user.name }}</li>
-                <li>Message : {{ user.message }}</li>
-            </ul>
-        </div>
-        {% endfor %}
+                <div class="card-header">
+                    <h2 class="card-title">User id : {{user.id}}</h2>
+                </div>
+                <div class="card-body">
+                    <ul class="card-text">
+                        <h1>Name : {{ user.name }}</h1>
+                        <h2>Message : {{ user.message }}</h2>
+                    </ul>
+        <a href="/update/{{ user.id }}"><button>Edit</button></a>
+        <a href="/delete/{{ user.id }}"><button>Delete</button></a>
+             </div>
     </div>
-</body>
-
-</html>
+    </body>
+         {% endfor %}
+{% endblock body %}

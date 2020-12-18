@@ -1,0 +1,34 @@
+{% extends 'greetingApp/base.html' %}
+{% block title %}Updates{% endblock title %}
+{% block body %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dissimsible fade show my-0" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if users %}
+    {% for user in users %}
+    <div class="container">
+        <h1 class="text-center">Update Details</h1>
+        <form autocomplete="off" method="post" action = "/update/{{user.id}}" >
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name : </label>
+                <input type="text" class="form-control" id="name" name="name" value={{ user.name }}>
+            </div>
+            <div class="form-group">
+                <label for="message">Message : </label>
+                <input type="text" class="form-control" id="message" name="message" value={{ user.message }}>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+    {% endfor %}
+    {% endif %}
+{% endblock body %}

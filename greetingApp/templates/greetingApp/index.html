@@ -1,51 +1,144 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/show">Show</a>
-            </li>
-        </ul>
+    <style type="text/css">
+        *{
+    margin: 0;
+    padding: 0;
+    font-family: Century Gothic;
+}
 
-        </div>
-    </div>
-    </nav>
-    <div class="container">
-    <h1 class="text-center">Hello, Welcome To Chat App :) </h1>
-    <form autocomplete="off" method="post" action = "">
-     {% csrf_token %}
-        <div class="form-group">
-            <label for="name">Name : </label>
-            <input type="text" class="form-control" id="name" name="name">
-        </div>
-        <div class="form-group">
-             <label for="message">Message : </label>
-             <input type="text" class="form-control" id="message" name="message">
-        </div>
-         <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    </div>
+header{
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://cdn.pubble.io/resources/web/pubble/img/hero8.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
 
+ul{
+    float: left;
+    list-style-type: none;
+    margin-top: 25px;
+    margin-left: 10px;
+    padding-top: 10px;
+}
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-  </body>
+ul li{
+    display: inline-block;
+    padding-inline: 10px;
+}
+
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 20px;
+    border: 1px solid #fff;
+    transition: 0.6s ease;
+}
+
+ul li a:hover{
+    background-color: #fff;
+    color: #000;
+
+}
+
+ul li.active a{
+    background-color: #fff;
+    color: #000;
+}
+
+.logo img{
+    float: right;
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.title{
+    position: absolute;
+    top: 30%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+}
+
+.title h1{
+    color: #fff;
+    font-size: 50px;
+}
+
+.Detail{
+    position: absolute;
+    top: 50%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+}
+
+.Detail .form-group{
+    color: #fff;
+    font-size: 50px;
+}
+
+.Detail .form-group1{
+    color: #fff;
+    font-size: 50px;
+}
+
+.Detail button{
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 20px;
+    border: 1px solid #fff;
+    transition: 0.6s ease;
+}
+
+.Detail button{
+    background-color: #fff;
+    color: #000;
+}
+
+input{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #CCC;
+    outline: none;
+    padding-bottom: 5px;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="main">
+            <div class="logo">
+                <img src="https://www.bridgelabz.com/assets/icons-remote/BridgeLabz%20New%20Logo.svg">
+            </div>
+            <ul>
+                <li class="active"><a href="">Home</a></li>
+                <li><a href="/show">Show</a></li>
+            </ul>
+        </div>
+        <div class="title">
+            <h1>Hello, Welcome To Greeting App :)</h1>
+        </div>
+        <div class="Detail">
+            <form autocomplete="off" method="post" action = "">
+                {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name">Name : </label>
+                        <input type="text" style="font-size:16pt;" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="form-group1">
+                        <label for="message">Message : </label>
+                        <input type="text" style="font-size:30pt;" class="form-control" id="message" name="message">
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </header>
+</body>
 </html>

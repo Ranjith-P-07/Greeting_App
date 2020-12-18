@@ -8,6 +8,7 @@ def index(request):
         message = request.POST.get('message')
         user = User(name=name, message=message)
         user.save()
+        return redirect('/show')
     return render(request, 'greetingApp/index.html')
 
 
@@ -22,8 +23,8 @@ def update(request, id):
     userid = id
     if request.method == 'POST':
         name = request.POST.get('name')
-        msg = request.POST.get('msg')
-        user_object = User(name=name, msg=msg, id=userid)
+        message = request.POST.get('message')
+        user_object = User(name=name, message=message, id=userid)
         user_object.save()
         return redirect('/show')
     else:

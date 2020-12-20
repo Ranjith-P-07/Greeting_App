@@ -1,5 +1,5 @@
 {% extends 'greetingApp/base.html' %}
-{% block title %}Updates{% endblock title %}
+{% block title %}Edit Page{% endblock title %}
 {% block body %}
     {% if messages %}
         {% for message in messages %}
@@ -14,7 +14,7 @@
     {% if users %}
     {% for user in users %}
     <div class="container">
-        <h1 class="text-center">Update Details</h1>
+        <h1 class="text-center">Edit Greeting</h1>
         <form autocomplete="off" method="post" action = "/update/{{user.id}}" >
             {% csrf_token %}
             <div class="form-group">
@@ -31,4 +31,5 @@
     </div>
     {% endfor %}
     {% endif %}
+    </div>
 {% endblock body %}

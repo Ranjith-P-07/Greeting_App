@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import User
+import logging
+
+logging.basicConfig(filename='sample.log', level=logging.INFO, format='%(asctime)s : %(name)s : %(message)s')
 
 
 def index(request):
@@ -8,6 +11,7 @@ def index(request):
         message = request.POST.get('message')
         user = User(name=name, message=message)
         user.save()
+        logging.info('Username : {} , Usermessage : {}'.format(user.name, user.message))
         return redirect('/show')
     return render(request, 'greetingApp/index.html')
 
